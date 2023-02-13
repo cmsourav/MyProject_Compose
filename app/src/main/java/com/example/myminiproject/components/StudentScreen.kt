@@ -235,13 +235,6 @@ fun StudentMainScreen(drawerState: DrawerState, onClick: () -> Unit) {
             OverViewCardUI(overView = datas)
             Spacer(modifier = Modifier.height(12.dp).background(Color.Gray))
             OverViewCardUI(overView = datas)
-            OverViewCardUI(overView = datas)
-            Spacer(modifier = Modifier.height(12.dp).background(Color.Gray))
-            OverViewCardUI(overView = datas)
-            Spacer(modifier = Modifier.height(12.dp).background(Color.Gray))
-            OverViewCardUI(overView = datas)
-            Spacer(modifier = Modifier.height(12.dp).background(Color.Gray))
-            OverViewCardUI(overView = datas)
         }
         RegisterButton(onClick = onClick)
     }
