@@ -50,8 +50,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.myminiproject.R
 import com.example.myminiproject.components.util.*
-import com.example.myminiproject.model.OverView
 import com.example.myminiproject.model.ReportModel
+import com.example.myminiproject.model.StudentData
 import com.example.myminiproject.nav_utils.NavStudentPage
 import com.example.myminiproject.viewmodel.HomeViewModel
 import kotlinx.coroutines.launch
@@ -194,17 +194,22 @@ fun StudentScreenNavigation(navController: NavHostController, drawerState: Drawe
 @Composable
 fun StudentMainScreen(drawerState: DrawerState, onClick: () -> Unit) {
     val scope = rememberCoroutineScope()
-    val scrollState = rememberScrollState()
+    val studentData = listOf(
+        StudentData(
+            first_name = "sourav",
+            last_name = "cm",
+            category = "Engineering",
+            course = "Computer science & engg",
+            college = "Excell Engineering college",
+            studentMobileNumber = "9633803580"
+        )
+    )
     Box(
         modifier = Modifier
             .fillMaxSize()
             .background(color = Color.White)
     ) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .verticalScroll(scrollState)
-        ) {
+        Column(modifier = Modifier.fillMaxSize()) {
             TopBarHeader(
                 openDrawer = {
                     scope.launch {
@@ -214,29 +219,63 @@ fun StudentMainScreen(drawerState: DrawerState, onClick: () -> Unit) {
                 screenName = "Student"
             )
             Spacer(modifier = Modifier.height(12.dp).background(Color.Gray))
-            val datas = listOf<OverView>(
-                OverView(state = "Tamilnadu", count = 60),
-                OverView(state = "Bangalore", count = 60),
-                OverView(state = "Mysore", count = 8),
-                OverView(state = "Mangalore", count = 5)
+            StudentDetailCard(
+                studentData = StudentData(
+                    first_name = "sourav",
+                    last_name = "cm",
+                    category = "Engineering",
+                    course = "Computer science & engg",
+                    college = "Excell Engineering college",
+                    studentMobileNumber = "9633803580"
+                )
             )
-
-            OverViewCardUI(overView = datas)
-            Spacer(modifier = Modifier.height(12.dp).background(Color.Gray))
-            OverViewCardUI(overView = datas)
-            Spacer(modifier = Modifier.height(12.dp).background(Color.Gray))
-            OverViewCardUI(overView = datas)
-            Spacer(modifier = Modifier.height(12.dp).background(Color.Gray))
-            OverViewCardUI(overView = datas)
-            OverViewCardUI(overView = datas)
-            Spacer(modifier = Modifier.height(12.dp).background(Color.Gray))
-            OverViewCardUI(overView = datas)
-            Spacer(modifier = Modifier.height(12.dp).background(Color.Gray))
-            OverViewCardUI(overView = datas)
-            Spacer(modifier = Modifier.height(12.dp).background(Color.Gray))
-            OverViewCardUI(overView = datas)
         }
         RegisterButton(onClick = onClick)
+    }
+}
+
+@Composable
+fun StudentDetailCard(studentData: StudentData) {
+    Card(
+        shape = RoundedCornerShape(6.dp),
+        elevation = 3.dp,
+        backgroundColor = Color.White,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 10.dp, start = 8.dp, end = 8.dp)
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(8.dp)
+        ) {
+            StudentDataCardItems(studentData = studentData, item = "Name")
+            StudentDataCardItems(studentData = studentData, item = "Course")
+        }
+    }
+}
+
+@Composable
+private fun StudentDataCardItems(
+    studentData: StudentData,
+    item: String
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(
+            text = item,
+            fontSize = 16.sp,
+            fontWeight = FontWeight.Bold,
+            color = Color.Black
+        )
+        Spacer(modifier = Modifier.width(12.dp))
+        Text(
+            text = studentData.first_name + studentData.last_name
+        )
+        Spacer(modifier = Modifier.height(14.dp))
     }
 }
 
@@ -552,7 +591,7 @@ fun FeesDetails(
                         remark.value.isNotEmpty()
                     ) {
                         onNextButtonClick()
-                    } else{}
+                    } else {}
                 },
                 btnBackground = if (
                     totalAmount.value.isNotEmpty() &&

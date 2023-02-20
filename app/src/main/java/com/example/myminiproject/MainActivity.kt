@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.*
+import androidx.compose.ui.graphics.Color
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -18,6 +20,7 @@ import com.example.myminiproject.viewmodel.HomeViewModel
 class MainActivity : ComponentActivity() {
     lateinit var homeViewModel: HomeViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
+        this.window.statusBarColor = ContextCompat.getColor(this,R.color.black)
         super.onCreate(savedInstanceState)
         setContent {
             homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]

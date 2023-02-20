@@ -1,13 +1,24 @@
 package com.example.myminiproject.model
 
-import java.util.Date
-
-data class S_personalInfo(
+data class StudentData(
     val first_name: String,
-    val last_name: String,
-    val fatherName: String,
-    val dob: Date,
-    val studentMobileNumber: Int,
-    val fatherMobileNumber: Int,
-    val studentEmail: String
+    val last_name: String?,
+    val category: String,
+    val course: String?,
+    val college: String,
+    val studentMobileNumber: String
 )
+//val gender: String,
+//val dob: String,
+//val fatherName: String,
+//val studentMobileNumber: String,
+//val fatherMobileNumber: String,
+//val studentEmail: String,
+//val degree: String,
+//val category: String,
+//val course: String,
+//val academicYear: String,
+//val dateOfAdmission: String,
+//val certificateCollected: String,
+//val place: String,
+//val college: String
