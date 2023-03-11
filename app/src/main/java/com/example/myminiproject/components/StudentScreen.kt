@@ -53,6 +53,8 @@ import com.example.myminiproject.components.util.*
 import com.example.myminiproject.model.ReportModel
 import com.example.myminiproject.model.StudentData
 import com.example.myminiproject.nav_utils.NavStudentPage
+import com.example.myminiproject.theme.PgBackground
+import com.example.myminiproject.theme.UgBackground
 import com.example.myminiproject.viewmodel.HomeViewModel
 import kotlinx.coroutines.launch
 import java.util.*
@@ -194,15 +196,167 @@ fun StudentScreenNavigation(navController: NavHostController, drawerState: Drawe
 @Composable
 fun StudentMainScreen(drawerState: DrawerState, onClick: () -> Unit) {
     val scope = rememberCoroutineScope()
-    val studentData = listOf(
+    val studentList = listOf(
         StudentData(
-            first_name = "sourav",
-            last_name = "cm",
+            first_name = "Sourav",
+            last_name = "CM",
             category = "Engineering",
             course = "Computer science & engg",
             college = "Excell Engineering college",
-            studentMobileNumber = "9633803580"
-        )
+            studentMobileNumber = "9633803580",
+            gender = "Male",
+            dateOfAdmission = "10/07/2021",
+            degree = "UG"
+        ),
+        StudentData(
+            first_name = "Muneer",
+            category = "Engineering",
+            course = "Computer science & engg",
+            college = "Excell Engineering college",
+            studentMobileNumber = "9633803580",
+            gender = "Female",
+            dateOfAdmission = "10/07/2021",
+            degree = "PG"
+        ),
+        StudentData(
+            first_name = "Sourav",
+            last_name = "CM",
+            category = "Engineering",
+            course = "Computer science & engg",
+            college = "Excell Engineering college",
+            studentMobileNumber = "9633803580",
+            gender = "Male",
+            dateOfAdmission = "10/07/2021",
+            degree = "UG"
+        ),
+        StudentData(
+            first_name = "Sourav",
+            last_name = "CM",
+            category = "Engineering",
+            course = "Computer science & engg",
+            college = "Excell Engineering college",
+            studentMobileNumber = "9633803580",
+            gender = "Male",
+            dateOfAdmission = "10/07/2021",
+            degree = "UG"
+        ),
+        StudentData(
+            first_name = "Muneer",
+            category = "Engineering",
+            course = "Computer science & engg",
+            college = "Excell Engineering college",
+            studentMobileNumber = "9633803580",
+            gender = "Female",
+            dateOfAdmission = "10/07/2021",
+            degree = "PG"
+        ),
+        StudentData(
+            first_name = "Sourav",
+            last_name = "CM",
+            category = "Engineering",
+            course = "Computer science & engg",
+            college = "Excell Engineering college",
+            studentMobileNumber = "9633803580",
+            gender = "Male",
+            dateOfAdmission = "10/07/2021",
+            degree = "UG"
+        ),
+        StudentData(
+            first_name = "Sourav",
+            last_name = "CM",
+            category = "Engineering",
+            course = "Computer science & engg",
+            college = "Excell Engineering college",
+            studentMobileNumber = "9633803580",
+            gender = "Male",
+            dateOfAdmission = "10/07/2021",
+            degree = "UG"
+        ),
+        StudentData(
+            first_name = "Muneer",
+            category = "Engineering",
+            course = "Computer science & engg",
+            college = "Excell Engineering college",
+            studentMobileNumber = "9633803580",
+            gender = "Female",
+            dateOfAdmission = "10/07/2021",
+            degree = "PG"
+        ),
+        StudentData(
+            first_name = "Sourav",
+            last_name = "CM",
+            category = "Engineering",
+            course = "Computer science & engg",
+            college = "Excell Engineering college",
+            studentMobileNumber = "9633803580",
+            gender = "Male",
+            dateOfAdmission = "10/07/2021",
+            degree = "UG"
+        ),
+        StudentData(
+            first_name = "Sourav",
+            last_name = "CM",
+            category = "Engineering",
+            course = "Computer science & engg",
+            college = "Excell Engineering college",
+            studentMobileNumber = "9633803580",
+            gender = "Male",
+            dateOfAdmission = "10/07/2021",
+            degree = "UG"
+        ),
+        StudentData(
+            first_name = "Muneer",
+            category = "Engineering",
+            course = "Computer science & engg",
+            college = "Excell Engineering college",
+            studentMobileNumber = "9633803580",
+            gender = "Female",
+            dateOfAdmission = "10/07/2021",
+            degree = "PG"
+        ),
+        StudentData(
+            first_name = "Sourav",
+            last_name = "CM",
+            category = "Engineering",
+            course = "Computer science & engg",
+            college = "Excell Engineering college",
+            studentMobileNumber = "9633803580",
+            gender = "Male",
+            dateOfAdmission = "10/07/2021",
+            degree = "UG"
+        ),
+        StudentData(
+            first_name = "Sourav",
+            last_name = "CM",
+            category = "Engineering",
+            course = "Computer science & engg",
+            college = "Excell Engineering college",
+            studentMobileNumber = "9633803580",
+            gender = "Male",
+            dateOfAdmission = "10/07/2021",
+            degree = "UG"
+        ),
+        StudentData(
+            first_name = "Muneer",
+            category = "Engineering",
+            course = "Computer science & engg",
+            college = "Excell Engineering college",
+            studentMobileNumber = "9633803580",
+            gender = "Female",
+            dateOfAdmission = "10/07/2021",
+            degree = "PG"
+        ),
+        StudentData(
+            first_name = "Sourav",
+            last_name = "CM",
+            category = "Engineering",
+            course = "Computer science & engg",
+            college = "Excell Engineering college",
+            studentMobileNumber = "9633803580",
+            gender = "Male",
+            dateOfAdmission = "10/07/2021",
+            degree = "UG"
+        ),
     )
     Box(
         modifier = Modifier
@@ -219,96 +373,17 @@ fun StudentMainScreen(drawerState: DrawerState, onClick: () -> Unit) {
                 screenName = "Student"
             )
             Spacer(modifier = Modifier.height(12.dp).background(Color.Gray))
-            StudentDetailCard(
-                studentData = StudentData(
-                    first_name = "sourav",
-                    last_name = "cm",
-                    category = "Engineering",
-                    course = "Computer science & engg",
-                    college = "Excell Engineering college",
-                    studentMobileNumber = "9633803580"
-                )
-            )
+            LazyColumn() {
+                items(items = studentList, itemContent = { item ->
+                    StudentDetailCard(studentData = item)
+                })
+            }
         }
         RegisterButton(onClick = onClick)
     }
 }
 
-@Composable
-fun StudentDetailCard(studentData: StudentData) {
-    Card(
-        shape = RoundedCornerShape(6.dp),
-        elevation = 3.dp,
-        backgroundColor = Color.White,
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(top = 10.dp, start = 8.dp, end = 8.dp)
-    ) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(8.dp)
-        ) {
-            StudentDataCardItems(studentData = studentData, item = "Name")
-            StudentDataCardItems(studentData = studentData, item = "Course")
-        }
-    }
-}
 
-@Composable
-private fun StudentDataCardItems(
-    studentData: StudentData,
-    item: String
-) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Text(
-            text = item,
-            fontSize = 16.sp,
-            fontWeight = FontWeight.Bold,
-            color = Color.Black
-        )
-        Spacer(modifier = Modifier.width(12.dp))
-        Text(
-            text = studentData.first_name + studentData.last_name
-        )
-        Spacer(modifier = Modifier.height(14.dp))
-    }
-}
-
-@Composable
-fun RegisterButton(onClick: () -> Unit) {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-    ) {
-        Row(
-            modifier = Modifier
-                .align(Alignment.BottomEnd)
-                .padding(bottom = 20.dp, end = 10.dp)
-        ) {
-            IconButton(onClick = onClick) {
-                Box(
-                    modifier = Modifier
-                        .clip(shape = CircleShape)
-                        .size(50.dp)
-                        .shadow(elevation = 6.dp)
-                        .background(Color.Black),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.baseline_edit_24),
-                        contentDescription = "edit",
-                        tint = Color.White
-                    )
-                }
-            }
-        }
-    }
-}
 
 /* Registration UI*/
 @Composable

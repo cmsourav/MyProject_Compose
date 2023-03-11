@@ -6,6 +6,8 @@ import androidx.compose.ui.graphics.Color
 
 val ButtonUnselectBackground = Color(0xFFDDDDEA)
 val BlackTabIcon = Color(0xE9121212)
+val UgBackground = Color(0XFFEC5954)
+val PgBackground = Color(0xFC0260A2)
 
 val CakapSurface: Color
     @Composable get() = if (!isSystemInDarkTheme()) Color(0xFFFFFFFF) else Color(0xFF3C3C3C)
